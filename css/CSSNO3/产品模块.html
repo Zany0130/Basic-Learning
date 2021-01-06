@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品模块</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #f5f5f5ff;
+        }
+        a {
+            color: #333333;
+            text-decoration: none;
+        }
+        .box {
+            width: 298px;
+            height: 415px;
+            /* 让块级盒子水平居中 */
+            margin: 100px auto;
+            background-color: #fff;
+        }
+        .box img {
+            width: 100%;/*图片的宽度和父亲元素的一样宽*/
+        }
+        .review {
+            height: 70px;
+            font-size: 14px;
+            padding: 0 28px;/*因为段落没有宽度属性，所以使用内边距不会撑开盒子*/
+            margin-top: 30px;/*而段落赋予了高度，所以不能使用内边距*/
+        }
+        .appraise {
+            font-size: 12px;
+            color: #b0b0b0;
+            padding: 0 28px;
+            margin-top: 20px;
+        }
+        .info {
+            font-size: 14px;
+            padding: 0 28px;
+            margin-top: 15px;
+        }
+        .info h4 {
+            display: inline-block;
+            font-weight: 400;
+        }
+        .info span {
+            color: #ff6700;
+        }
+        .info em {
+            font-style: normal;
+            color: #ebe4ee;
+            margin:0 7px 0 15px /*盒子与盒子之间一般用margin*/
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="images/img.jpg" alt="">
+        <p class="review">快递牛，整体不错蓝牙可以说是秒连，红米给力</p>
+        <div class="appraise">来自于xxxxx的评价</div>
+        <div class="info">
+        <h4><a href="#">Redmi AirPots 真无线蓝... </a></h4>
+        <!-- /*产品标题一般用盒子*/ -->
+        <em>|</em>
+        <span>99.9元</span>
+        </div>
+    </div>
+</body>
+</html>

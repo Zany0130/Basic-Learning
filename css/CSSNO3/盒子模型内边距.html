@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>padding</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color:turquoise;
+            padding-left: 20px;/*内边距 默认内容和边框是贴在一起的*/
+            padding-top: 30px;
+        }
+        .fuhe {
+            /* padding:20px;上下左右都是5px */
+            /* padding: 20px 30px;上下20px，左右30px */
+            /* padding: 20px 10px 30px;上20 左右为10 下为30 */
+            padding: 5px 10px 20px 30px;/*上 右 下 左 顺时针规定*/
+        }
+        /* 添加内边距之后，同样会使盒子变大，此时我们要手动调整盒子的宽高来减去多出的边距 如果盒子本身没有规定宽高则内边距不会增加盒子的宽高 */
+    </style>
+</head>
+<body>
+    <div>
+        随便想写什么写什么。想写什么写什么，想写什么写什么啦啦啦啦啦啦啦啦啦
+    </div>
+    <div class="fuhe">
+        随便想写什么写什么。想写什么写什么，想写什么写什么啦啦啦啦啦啦啦啦啦
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Counter {
+            constructor(limit) {
+                this.count = 1;
+                this.limit = limit;
+            }
+            next() {
+                if (this.count <= this.limit) {
+                    return  {done: false, value: this.count++};
+                }
+                else {
+                    return {done: true, value: undefined};
+                }
+            }
+            [Symbol.iterator]() {
+                return this;
+            }
+        }
+
+        let counter = new Counter(3);
+        // console.log(counter.next());
+        console.log(counter);
+        console.log(counter.value);//undefinded
+        console.log(counter.count);//1
+
+        for (let i of counter) {
+            console.log(i);
+        }
+        //1
+        //2
+        //3
+        console.log(counter.count);//4
+
+        for (let i of counter) {
+            console.log(i);
+        }
+        //nothing因为每个实例智能被迭代一次
+        
+        console.log(counter.count);//4；经过一组迭代后，count已经永久的变为4了，所以不能再进行迭代了
+    </script>
+</body>
+</html>

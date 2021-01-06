@@ -1,0 +1,40 @@
+body {
+    background-color: black;
+}
+#hOne {
+    color: white;
+    font-size: 50px;
+    font-family: PingFangSC-Regular, sans-serif;
+    line-height: 1px;
+    width: 100%;
+    text-align: center;
+}
+
+#hTwo {
+    color: #d01f2a;
+    font-size: 20px;
+    text-align: center;
+}
+
+#hThree {
+    color: white;
+    font-size: 30px;
+    line-height: 30px;
+    font-size: PingFangSC-Regular, sans-serif;
+    text-align: center;
+}
+
+div {
+    color: white;
+    margin: 0 auto;
+}
+
+#endTime {
+    color: #2997ff;
+}
+
+img {
+    width: 228px;
+    height: 366px;
+    border: 0px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用网页布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .top {
+            height: 50px;
+            background-color:gray;
+            text-align:center;
+            line-height: 50px;
+        }
+        .banner {
+            width: 980px;
+            height: 150px;
+            background-color: gray;
+            margin: 10px auto;
+        }
+        li {
+            list-style: none;
+        }
+        .box {
+            width: 980px;
+            margin: 0 auto;
+            height: 300px;
+            background-color:brown;
+        }
+        .box li {
+            float: left;
+            width: 237px;
+            height: 300px;
+            background-color:gray;
+            margin-right: 10px;
+        }
+        .box .last {
+            margin-right: 0;
+        }
+        .footer {
+            height: 200px;
+            background-color:gray;
+            margin-top: 10px;
+            text-align:center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">先用标准流的父级元素排列上下位置，之后内部子元素采取浮动排列左右位置</div>
+    <div class="banner">banner</div>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li class="last">4</li>
+        </ul>  
+    </div>
+    <div class="footer">浮动只会影响后面的标准流</div>
+</body>
+</html>

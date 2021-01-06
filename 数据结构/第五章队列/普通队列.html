@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>队列练习板</title>
+</head>
+<body>
+    <script>
+        class Queue {
+            constructor() {
+                this.count = 0;//控制队列的大小
+                this.lowestCount = 0; //用来追踪第一个元素，因为是“先进先出”的原则，所以第一个元素非常重要
+                this.items = {};//本质是用数组来进行描述的
+            }
+            enqueue(element) {
+                this.items[this.count] = element;
+                this.count++;
+            }//向列表里添加元素
+            dequeue() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                const result = this.items[this.lowestCount];
+                delete this.items[this.lowestCount];
+                this.lowestCount++;
+                return result;
+            }//删除元素
+            peek() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                return this.items[this.lowestCount];
+            }//查看队列中第一个元素
+            isEmpty() {
+                return this.count - this.lowestCount === 0;
+            }//判断队列是否为空
+            size() {
+                return this.count - this.lowestCount;
+            }//判断队列长度
+            clear() {
+                this.items = {};
+                this.count = 0;
+                this.lowestCount = 0;
+            }//清空队列
+            toString() {
+                if (this.isEmpty()) {
+                    return '';
+                }
+                let objString = `${this.items[this.lowestCount]}`;
+                for (let i = this.lowestCount + 1; i < this.count; i++) {
+                    objString = `${objString},${this.items[i]}`;
+                }
+                return objString;
+            }//
+        }
+
+        const queue = new Queue();
+        console.log(queue.isEmpty());
+        queue.enqueue('John');
+        queue.enqueue('Jack');
+        console.log(queue.toString());
+        queue.enqueue('Camila');
+        console.log(queue.size());
+        queue.dequeue();
+        console.log(queue.toString());
+    </script>
+</body>
+</html>

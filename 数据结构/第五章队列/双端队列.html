@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双端队列</title>
+</head>
+<body>
+    <script>
+        class Deque {
+            constructor() {
+                this.count = 0;
+                this.lowestCount = 0;
+                this.items = {};
+            }
+            isEmpty() {
+                return this.count - this.lowestCount === 0;//当前-首位判断是否有元素存在
+            }
+            clear() {
+                this.count = 0;
+                this.lowestCount = 0;
+                this.items = {}; //直接全部初始化，相当于重新构建了一个空数组
+            }
+            size() {
+                return this.count - this.lowestCount;
+            }
+            toString() {
+                if (this.isEmpty()) {
+                    return '';
+                }
+                let objString = `${this.items[this.lowestCount]}`;
+                for (let i = this.lowestCount + 1; i < this.count; i++) {
+                    objString = `${objString},${this.items[i]}`;
+                }
+                return objString;//输出，有疑问
+            }
+            addBack(element) {
+                this.items[this.count] = element;
+                this.count++;//正常在末端添加元素
+            }
+            removeBack() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                var result = this.items[this.count];
+                delete this.items[this.count-1];
+                this.count--;
+                return result;
+                //朴素做法，相当于把pop（）的逻辑实现了一遍
+               //return this.items.pop();为什么pop（）方法会报错呢？
+            }
+            removeFront() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                var result = this.items[this.lowestCount];
+                delete this.items[this.lowestCount];
+                this.lowestCount++;
+                return result;
+            }
+            peekFront() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                return this.items[this.lowestCount];
+            }
+            peekBack() {
+                if (this.isEmpty() ) {
+                    return undefined;
+                }
+                //return this.items[this.count];// 此时this.items[this.count]指向的尾端元素的下一个“key”，因为每次在队列尾端添加元素之后this.count会++
+                return this.items[this.count - 1 ];
+            }
+            addFront(element) {
+                if (this.isEmpty()) {
+                    this.addBack(element); //若为空，则前端队列或后端队列添加的结果都是相同的
+                } else if (this.lowestCount > 0) {
+                    this.lowestCount--;
+                    this.items[this.lowestCount] = element;//队列的前端“key”不为零，则直接减一留出前面的位置添加
+                } else {
+                    for (let i = this.count; i > 0; i--) {
+                        this.items[i] = this.items[i - 1];
+                    }
+                    this.count++;//为后面的队列添加元素做准备
+                    this.lowestCount = 0;
+                    this.items[0] = element;//队列前端的“key”为0，队列无法直接构造负值，所以整体后移，将值插在【0】处
+                }
+            }
+        }//Deque声明完成
+        const deque = new Deque();//生成一个刚声明好的类
+        console.log(deque.isEmpty());//true
+        deque.addBack('Jack');
+        deque.addBack('Barry');
+        deque.addBack('Bob');
+        console.log(deque.isEmpty());//false
+        console.log(deque.size());
+        console.log(deque.toString());
+        deque.removeBack();
+        console.log(deque.toString());
+        deque.removeFront();
+        console.log(deque.toString());
+        deque.addFront('Marry');
+        console.log(deque.toString());
+    </script>
+</body>
+</html>

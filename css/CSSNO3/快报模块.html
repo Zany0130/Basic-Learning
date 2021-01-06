@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快报模块</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 248px;
+            height: 163px;
+            border:1px solid #ccc;
+            margin: 100px auto;
+        }
+        .box h3 {
+            height: 32px;
+            border-bottom: 1px dotted #ccc;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 32px;/*行高等于盒子的高度就可以实现垂直居中*/
+            padding-left: 15px;/*为对丁盒子的宽度，所以不会使盒放大*/
+            /* margin-left: 15px; 会使盒子向右移动，因为加了边框，边框的虚线会向右移动*/
+        }
+        .box ul li a {
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+        }
+        .box ul li a:hover {
+            text-decoration: underline;
+        }
+        li {
+            list-style: none;/*去掉小圆点*/
+        }
+        .box ul li {
+            height: 23px;
+            line-height: 23px;
+            padding-left: 20px;
+        }
+        .box ul {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3 class="biaoti">品优购快报</h3>
+        <ul>
+            <li><a href="#">【特惠】爆款耳机5折起</a></li>
+            <li><a href="#">【特惠】母亲节，健康好礼低至5折</a></li>
+            <li><a href="#">【特惠】9.9元洗100张照片</a></li>
+            <li><a href="#">【特惠】长虹智能空调立省1000</a></li>
+        </ul>
+
+    </div>
+</body>
+</html>

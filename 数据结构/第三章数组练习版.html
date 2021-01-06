@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组练习</title>
+</head>
+<body>
+
+<!--     <script>
+        // 输出斐波那契数列
+        let fibonacci = [];
+        fibonacci[1] = 1;
+        fibonacci[2] = 1;
+        for (let i = 3; i < 20; i++) {
+            fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
+        }
+        for (let i = 1; i < fibonacci.length; i++){
+            console.log(fibonacci[i]);
+        }
+        console.log[20];
+    </script> -->
+
+    <!-- <script>
+        // 向数组开头添加元素
+        let nums = [1,2,3,4,5,6,7,8,9,10];
+        Array.prototype.insertFirstposition = function(value) {
+            for (let i = this.length; i > 0; i--){
+                this[i] = this[i-1];
+            }
+            this[0] = value;
+        } 
+        nums.insertFirstposition(-1);
+        console.log(nums); // unshift()函数的原型 nums.unshift(-1)
+        // 删除数组的第一个元素（同时缩短了数组的长度） nums.shift();
+
+        // 删除,增加数组中指定位置的元素 
+        nums.splice(5,3); //删除nums[5] ~ nums[7]
+    </script> -->
+
+    <!-- <script>
+        // 构造和输出三维数组;每一个元素为行、列、深度的和
+        let matrix3x3x3 = [];
+        for (let i = 0; i < 3; i++) {
+            matrix3x3x3[i] = [];  //每个数组都需要初始化
+            for (let j = 0; j < 3; j++) {
+                matrix3x3x3[i][j] = [];
+                for (let z = 0; z < 3; z++){
+                    matrix3x3x3[i][j][z] = i + j + z;
+                }
+            }
+
+        }
+        for (let i = 0; i < matrix3x3x3.length; i++){
+            for (let j = 0; j < matrix3x3x3[i].length; j++) {
+                for (let z = 0; z < matrix3x3x3[i][j].length; z++){
+                console.log(matrix3x3x3[i][j][z]);
+                }
+            }
+        }
+        console.log(matrix3x3x3[2][2][2]);
+    </script> -->
+
+    <script>
+        // 判断是否能被2整除
+        // const IsEven = x => x % 2 === 0;
+        // function IsEven(x) {
+        //     console.log(x);
+        //     return x % 2 === 0 ? true : false;
+        // }
+        // console.log(IsEven(5));
+
+        // const IsEven = x => x % 2 === 0;
+        // console.log(IsEven(5));
+
+        // fill用来填充数组
+        // let num1 = [1,2,3,4,5,6,7,8];
+        // num1.fill(10,1,2);
+        // console.log(num1);
+
+        // 自定义排序
+        // const boys = [
+        //     {name:'A',age:'20'},
+        //     {name:'B',age:'15'},
+        //     {name:'C',age:'30'},
+        //     {name:'D',age:'27'},
+        //     {name:'E',age:'24'},
+        // ];
+        // function compareAGE(a,b) {
+        //     if (a.age < b.age) {
+        //         return -1;
+        //     }
+        //     if (a.age > b.age) {
+        //         return 1;
+        //     }
+        //     return 0;
+        // }
+        // console.log(boys.sort(compareAGE));
+
+        // 搜索find && findindex &includes
+        // let nums = [1,2,3,4,5,10,13,15,16,26,29,30,39];
+        // function multipleOf13(element) {
+        //     return (element % 13 == 0);
+        // } 
+        // console.log(nums.find(multipleOf13));  //13 仅能返回第一个满足条件的值
+        // console.log(nums.findIndex(multipleOf13));  //6  返回索引即，“nums[6]”
+        // console.log(nums.includes(10,6)); //搜索数组从nums[6]开始，是否有元素10.
+
+        let myarray = [1,2,3,'boy','girl','a','B','C','阿斯顿'];
+        console.log(myarray.pop());
+        console.log(myarray);
+        
+        //let num2 = [1,2,3,4,5,6,7];
+        //console.log(num2);
+        // console.log(num2.pop());
+        // console.log(num2);
+
+
+
+    </script>
+</body>
+</html>

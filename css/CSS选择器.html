@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS基础选择器</title>
+    <style>
+        /* 选择器{样式} */
+        /* 标签选择器 */
+        p {
+            color: red;  
+            font-size: 20px;  /* px 代表像素大小 ：后面一般保留一个空格 选择器和样式之间也要保留一个空格 */
+        }
+        div {
+            color: pink;
+            font-size: 20px;
+        }
+
+        /* 类选择器  样式点定义 结构类(class)调用 一个或多个*/
+        /* .box {
+            width: 100px;
+            height: 100px;
+        }
+        .red {
+            color: red;
+        } 
+         .green {
+            color: green;
+        }  */
+        /* 或者 */
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .green {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+        /* 多类名 多类名间用空格隔开 */
+        .yellow {
+            color: yellow;
+        }
+        .font35 {
+            font-size: 35px;
+        }
+
+        /* id选择器 */
+        #pink {
+            color: pink;
+        }
+
+        /* 通配符选择器  */
+        * {
+            color: indigo;
+        }
+        /* *将所有的 html body 等全部改为颜色， 且不需要调用 */
+
+
+    </style>
+</head>
+<body>
+    <p>practice</p>
+    <p>男生</p>
+    <p>男生</p>
+    <p>男生</p>
+    <div>女生</div>
+    <div>女生</div>
+    <div>女生</div>
+
+    <!-- <ul>
+        <li>洛杉矶湖人</li>
+        <li class="red">芝加哥公牛</li>
+        <li class="red">迈阿密热火</li>
+        <li class="green">克利夫兰骑士</li>
+        <li class="green">波士顿凯尔特人</li>
+        <li>金州勇士</li>
+    </ul> -->
+
+    <div class="red">第一个盒子红色</div>
+    <div class="green">第二个盒子绿色</div>
+    <div class="red">打三个盒子红色</div>
+
+    <!-- 多类名 多类名间用空格隔开 -->
+    <div class="yellow font35">刘德华</div>
+
+    <!-- id的选择器  样式#定义 结构id调用 只能调用一次-->
+    <div id="pink">id选择器只能被调用一次</div>
+</body> 
+</html>

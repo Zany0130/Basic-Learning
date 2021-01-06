@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+    <script src="./Set.js"></script> 
+    <!-- 调入自己构造的类 -->
+</head>
+<body>
+    <script>
+    const set = new Set();
+    set.add(1);
+    set.add(2);
+    console.log(set);
+    console.log(set.values());
+    console.log(set.has(1));
+    console.log(set.size());
+    console.log(set.delete(1));
+    console.log(set.values());
+
+    const setA = new Set();
+    setA.add(1);
+    setA.add(2);
+
+    const setB = new Set();
+    setB.add(1);
+    setB.add(2);
+    setB.add(3);
+
+    const setC = new Set();
+    setC.add(2);
+    setC.add(3);
+    setC.add(4);
+
+    console.log(setA.isSubsetOf(setB));
+    console.log(setB.isSubsetOf(setC));
+
+
+
+    </script>
+</body>
+</html>

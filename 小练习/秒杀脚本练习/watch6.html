@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch6</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1 id="hOne">🍎 WATCH</h1>
+    <h2 id="hTwo">S E R I E S 6</h2>
+    <h3 id="hThree">健康的未来，现在戴上</h3>
+    <div align="center">
+        <img src="./watch6.png" alt="watch6">
+        <p id="time">预售倒计时<span id="endTime"></span>秒</p>
+        <input type="button" id="btn" value="立即购买" disabled="disabled"><br />
+    </div>
+    <script type="text/javascript" src="./jquery-3.5.1.js"></script> // 导入jquery
+<script type="text/javascript">
+  $(function () {
+   var timeElement = $("#endTime")[0]; // 获得倒计时dom对象
+   var i = 10;
+   function remainTime() {
+    if (i > 0) {
+     timeElement.innerHTML = i--;
+     setTimeout(function () {
+      remainTime();
+     }, 1000);
+    }
+    if (i == 0) {
+     $("#time")[0].innerHTML = "在线选购开始";
+     $("#time").css({color: "#2997ff"});
+     $("#btn")[0].disabled = false; // 倒计时结束，按钮可以点击
+    }
+   }
+   remainTime();
+
+   $("#btn").click(function () { // 点击事件
+    alert("我们已收到您的付款，正在处理您的订单");
+   });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 20200908 变量
+         <script>
+        // 这是一个输入框
+        // prompt('请输入你的年龄');
+        // alert 弹出警示框  输出的，展示给用户的
+        // alert('计算的结果是');
+        // console.log('程序员能看到的');
+
+        // var age;
+        // age = 10;
+        // alert(age);
+        // console.log(age);
+        var myname = '卡卡西';
+        var address = '火影村';
+        var email = 'kakaxi@163.com';
+        console.log(myname);
+        console.log(address);
+        console.log(email);
+    </script> -->
+
+    <!-- 20200909 简单数据类型
+        
+        <script>
+        var myname = prompt('请输入你的名字');
+        alert(myname);
+        var num = 10; //JS的变量数据类型是只有在程序运行的过程中，根据等号右边的值才确定的
+        //JS中的变量类型在运行中是可以变化的
+        var x = 10; //x 是数字型
+        x = 'james';//此处的x变成了字符串型
+
+        // 1.八进制 0~7 数字前面加0就是八进制
+        var num1 = 010;
+        console.log(num1);
+
+        //2.十六进制 0~9 A~F
+        var num2 = 0xD;
+        console.log(num2);
+
+        //3. The max/min of nums
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+
+        //4.无穷大/小 Infinty/-Infinty
+
+        //5.非数值 NaN
+        console.log('lalal'-100);
+
+        //6.isNaN()用来判断非数字    并且返回 布尔值 false/true
+        console.log(isNaN(123));
+
+        var str = '你长的\n"真好看"';
+        console.log(str);
+
+        
+    </script> -->
+
+    <!-- <script>
+        alert('今天是是2020年9月9日，已经来学校整整4个月了，\n最近这四个月感觉自己的收获很大，希望自己能继续好好科研，好好准备发文章，然后也不能忘记前端的学习，\n加油吧明年的暑期实习，已经明年这个时候的秋招，加油，我一定行，嘻嘻');
+    </script> -->
+
+
+    <!-- <script>
+        //1.检测字符串长度 length
+        var str = 'My name is Tarzan';
+        console.log(str.length);
+
+        //2.字符串的拼接 +  结果仍是字符串
+        console.log('lalal'+'Anan');
+        console.log('hello' + 18);
+        console.log('hello' + true);
+        var age = 18;
+        console.log('我今年'+ age +'岁了' );  // 变量不用写到字符串里面
+    </script> -->
+
+    <!-- <script>
+        var age = prompt('请输入您的年龄：');
+        var str = '用户的年龄已经' + age + '岁了';
+        alert(str);
+
+
+        // 如果一个声明变量未赋值 就是 undefined 未定义数据类型
+        var num = undefined;
+        console.log(num + 'hello'); // undefinedhello
+        console.log(num + 1);  // NaN
+
+        //NaN
+        var space = null;
+        console.log(space + 1);  // 1
+    </script> -->
+
+<!-- <script>
+    //判断数据类型 typeof
+    var num = 10;
+    var timer = null;
+    console.log(typeof num);  // number
+    console.log(typeof timer); // object
+    var age = prompt('请输入你的年龄：');
+    console.log(age); //18
+    console.log(typeof age); //string 类型已经发生了转换，变成了字符串型
+</script> -->
+
+
+<!-- <script>
+    //数据类型转换
+
+
+    //1. 转换为字符串型 a转换 b强制转换 c+ 拼接转换(隐式转换)
+    var num = 10;
+    var str = num.toString();
+    console.log(typeof str); 
+
+    console.log(typeof String(num));
+
+    console.log(typeof (num + ''));
+
+    //2.转换为数字型 
+    //parseInt(String)
+    var age = prompt('请输入您的年龄：');
+    console.log(typeof parseInt(age)); //number
+    console.log(parseInt('3.9')); //取整
+    console.log(parseInt('5cm'));  //会去掉单位
+    //parseFloat(String)
+    console.log(parseFloat(3.14)); //3.14
+    //利用Number(变量)
+    console.log(Number('12'));
+    //利用算数运算 - * / 隐式转换
+    console.log('12' - 0);
+    console.log('123' - '120'); //3
+    console.log('123' + '120');//123120
+    console.log('123' * 1); //123
+</script> -->
+
+<!-- <script>
+    //数据转换案列(减法自带隐式转换)
+    // var year = prompt('请输入您的出生年份：');
+    // var age = 2020 - year; //year 取过来的是字符串型  加法需要一定要进行数据类型转换 但是在减法中 有隐式转换 所以结果应该为number
+    // alert('您今年的年龄为：' + age + '岁');
+
+    var num1 = prompt('请输入要计算的第一个数字：');
+    var num2 = prompt('请输入要计算的第二个数字：');
+    var result = parseFloat(num1) + parseFloat(num2);
+    alert('两数相加的结果为：' + result);
+
+</script> -->
+
+<!-- <script>
+    //转换为布尔值类型 Boolean()  False：'' 0 NaN null undefined
+    console.log(Boolean(''));
+</script> -->
+
+<script>
+    var name = prompt('请输入您的姓名：');
+    var age = prompt('请输入您的年龄：');
+    var sex = prompt('请输入您的性别：');
+    alert(  '姓名：' + name  + '\n性别：' + sex   + '\n年龄：' + age);
+</script>
+    
+
+
+</body>
+</html>

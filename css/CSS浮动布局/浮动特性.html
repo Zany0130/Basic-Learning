@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动特性</title>
+    <style>
+        .box1 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color:skyblue;
+        }
+        .box2 {
+            width: 300px;
+            height: 300px;
+            background-color:slateblue;
+        }
+        span {
+            float: left;
+            width: 200px;
+            height: 100px;
+            background-color:springgreen;
+        }
+        span {
+            float: left;
+            width: 200px;
+            height: 100px;
+            background-color:tomato;
+        }
+        p  {
+            float: right;
+            height: 100px;
+            background-color:thistle;
+        }
+    </style>
+
+</head>
+<body>
+    <h4>1浮动元素会脱离标准流（脱标）</h4>
+    <ul>
+        <li>脱离标准普通流的控制（浮），移动到指定位置（动），（俗称脱标）</li>
+        <li>浮动的盒子不再保留原先的位置</li>
+    </ul>
+    <h4>2浮动的元素会一行内显示并且语速顶部对齐</h4>
+    <h4>3浮动的元素具有行内块元素的特性</h4>
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <span>1行内元素加浮动，同行内块元素</span>
+    <span>2可以添加宽高</span>
+    <p>块级元素,浮动后还是在同一行，没有规定宽度，则根据块内元素的长度来变化</p>
+</body>
+</html>

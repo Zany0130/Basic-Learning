@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+    <style>
+        /* border 边框 宽度 样式 颜色
+        ::content内容
+        padding内边距
+        margin外边距 */
+        div {
+            width: 300px;
+            height: 200px;
+            border-width: 5px;
+            /* border-style: solid;实线 */
+            /* border-style: dashed;虚线 */
+            border-style: dotted;/*点线*/
+            border-color:green;
+        }
+        .fuhe {
+            width: 300px;
+            height: 200px;
+            /* border: 5px solid red;没有顺序 */
+            border-top:5px solid blue;
+            border-bottom:10px dashed yellow; ;
+        }
+        .lianxi {
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+            border-top: 1px solid red;/*层叠性就近原则*/
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="fuhe"></div>
+    <div class="lianxi"></div>
+</body>
+</html>

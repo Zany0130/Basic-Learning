@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        // 2.2.6
+        const hello = {
+            name : 'Trzan',
+            printHello() {
+                console.log('Hello'); 相比下面的方法，相当于直接声明了函数
+            }
+        };
+        console.log(hello.printHello());
+    </script> -->
+
+    <!-- <script>
+        var hello = {
+            name : 'Tarzan',
+            printHello : function printHello() {
+                console.log('Hello');
+            }
+        };
+        console.log('这不是构造的hello');
+        console.log(hello.printHello());
+    </script> -->
+    <script>
+        class Book {
+    constructor (title, pages, isbn) {
+        this.title = title;
+        this.pages = pages;
+        this.isbn = isbn;
+    }
+    printIsbn(){
+        console.log(this.isbn);
+    }
+}
+    </script>
+</body>
+</html>

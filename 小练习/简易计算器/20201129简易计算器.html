@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+</head>
+<body>
+    <script>
+         new Vue({
+            el: "#app",
+            data: {
+                equation: '0',
+                isDecimalAdded: false, //防止在一组数字中间输入超过一个小数位
+                isOperatorAdded: false, //判断之否已点击 加、减、乘、除，防止连续点击超过一个运算符号
+                isStarted: false, //判断计算器是否已经开始输入数字，用于正负数和百分比计算的时候作一些判断
+            },
+            methods: {
+                //Check if the character is + - × ÷
+                isOperator(character) { //用来判断character 是否加减乘除
+                    return ['+', '-', '×', '÷'].indexOf(character) > -1
+                },
+                append(character) { //append(character)加减乘除
+                    if (this.equation === '0' && !this.isOperator(character)) {
+                        if (character === '.') {
+                            this.equation += '' + character
+                            this.isDecimalAdded = true
+                        } else {
+                            this.equation = '' + character
+                        }
+                        this.isStarted = true
+                        return
+                    }
+
+                    if (!this.isOperator(character)) {
+                        if (character === '.' && this.isDecimalAdded) {
+                            return
+                        }
+
+                        if (character === '.') {
+                            this.isDecimalAdded = true
+                            this.isOperatorAdded = true
+                        } else {
+                            this.isOperatorAdded = false
+                        }
+                        this.equation += '' + character
+                    }
+
+                    if (this.isOperator(character) && !this.isOperatorAdded) {
+                        this.equation += '' + character
+                        this.isDecimalAdded = false
+                        this.isOperatorAdded = true
+                    }
+                },
+                calculate() { //等于号的时候
+                    let result = this.equation.replace(new RegExp('×', 'g'), '*').replace(new RegExp('÷', 'g'), '/')
+                    this.equation = parseFloat(eval(result).toFixed(9)).toString()
+                    this.isDecimalAdded = false
+                    this.isOperatorAdded = false
+                },
+                calculateToggle() { //点击正负号
+                    if (this.isOperatorAdded || !this.isStarted) {
+                        true
+                    }
+
+                    this.equation = this.equation + '* -1'
+                    this.calculate()
+                },
+                calculatePercentage() { //点击百分比
+                    if (this.isOperatorAdded || !this.isStarted) {
+                        true
+                    }
+
+                    this.equation = this.equation + '* 0.01'
+                    this.calculate()
+                },
+                clear() { //点击AC
+                    this.equation = '0'
+                    this.isDecimalAdded = false //防止在一组数字中间输入超过一个小数位
+                    this.isOperatorAdded = false //判断之否已点击 加、减、乘、除，防止连续点击超过一个运算符号
+                    this.isStarted = false //判断计算器是否已经开始输入数字，用于正负数和百分比计算的时候作一些判断
+                }
+            }
+        })
+    </script>
+
+    <div id="app">
+        <div class="calculator">
+            <div class="result" style="grid-area:result">
+                {{equation}}
+            </div>
+            <button style="grid-area: ac" @click="clear">AC</button>
+            <button style="grid-area: plus-minus" @click="calculateToggle">+-</button>
+            <button style="grid-area: percent" @click="calculatePercentage">%</button>
+            <button style="grid-area: add" @click="append('+')">+</button>
+            <button style="grid-area: subtract" @click="append('-')">-</button>
+            <button style="grid-area: multiply" @click="append('*')">*</button>
+            <button style="grid-area: divide" @click="append('/')">/</button>
+            <button style="grid-area: equal" @click="calculate">=</button>
+
+            <button style="grid-area: number-1" @click="append(1)">1</button>
+            <button style="grid-area: number-2" @click="append(1)">2</button>
+            <button style="grid-area: number-3" @click="append(1)">3</button>
+            <button style="grid-area: number-4" @click="append(1)">4</button>
+            <button style="grid-area: number-5" @click="append(1)">5</button>
+            <button style="grid-area: number-6" @click="append(1)">6</button>
+            <button style="grid-area: number-7" @click="append(1)">7</button>
+            <button style="grid-area: number-8" @click="append(1)">8</button>
+            <button style="grid-area: number-9" @click="append(1)">9</button> 
+            <button style="grid-area: number-0" @click="append(1)">0</button>
+
+            <button style="grid-area:dot" @click="append('.')">.</button>
+        </div>
+    </div>
+</body>
+</html>

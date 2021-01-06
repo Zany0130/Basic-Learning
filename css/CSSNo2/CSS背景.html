@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS背景</title>
+    <style>
+       
+        div {
+            width:300px;
+            height: 300px;
+            /* background-color: transparent; 透明的清澈的*/
+            background-image: url(images/logo.png); /* background-image; 优点：非常容易控制位置*/
+            /* background-repeat: repeat|no-repeat|repeat-x|repeat-y;  背景平铺 默认情况下都是平铺的*/
+            background-repeat: no-repeat;
+            /* background-repeat: repeat-x; */
+            /* background-repeat: repeat-y; */
+            /* 页面元素既可以添加背景图片，也可以添加背景颜色，只不过背景颜色会覆盖背景图片 */
+            /* background-attachment: scroll|fixed; 设置背景图像是否固定或者随着页面的其余部分滚动 */
+            /*background-position: x y; left top bottom center 方位名词|百分数，由浮点数字和单位表示符组成的长度值*/
+            background-position: 20px bottom; /* top center 效果相同 可以省略一个方位名词，另一个是居中的*/
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

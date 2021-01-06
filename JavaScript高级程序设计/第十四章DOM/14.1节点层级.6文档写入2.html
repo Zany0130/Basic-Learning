@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document.write()</title>
+</head>
+<body>
+    <p>
+        This is some content that you won't get to see beacuse 
+        it will be overwriten by
+        <script>
+            window.onload = function() {
+                document.write("FUCK YOU!")
+            };
+        </script>
+    </p>
+</body>
+</html>

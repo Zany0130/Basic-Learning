@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回文检查器</title>
+</head>
+
+<body>
+    <script>
+        class Deque {
+            constructor() {
+                this.count = 0;
+                this.lowestCount = 0;
+                this.items = {};
+            }
+            isEmpty() {
+                return this.count - this.lowestCount === 0;//当前-首位判断是否有元素存在
+            }
+            clear() {
+                this.count = 0;
+                this.lowestCount = 0;
+                this.items = {}; //直接全部初始化，相当于重新构建了一个空数组
+            }
+            size() {
+                return this.count - this.lowestCount;
+            }
+            toString() {
+                if (this.isEmpty()) {
+                    return '';
+                }
+                let objString = `${this.items[this.lowestCount]}`;
+                for (let i = this.lowestCount + 1; i < this.count; i++) {
+                    objString = `${objString},${this.items[i]}`;
+                }
+                return objString;//输出，有疑问
+            }
+            addBack(element) {
+                this.items[this.count] = element;
+                this.count++;//正常在末端添加元素
+            }
+            removeBack() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                this.count--;//count永远指向的是后一个位置的，所以删除队尾要先-1
+                var result = this.items[this.count];
+                delete this.items[this.count];
+                return result;
+                //朴素做法，相当于把pop（）的逻辑实现了一遍
+                //return this.items.pop();为什么pop（）方法会报错呢？
+            }
+            removeFront() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                var result = this.items[this.lowestCount];
+                delete this.items[this.lowestCount];
+                this.lowestCount++;
+                return result;
+            }
+            peekFront() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                return this.items[this.lowestCount];
+            }
+            peekBack() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                //return this.items[this.count];// 此时this.items[this.count]指向的尾端元素的下一个“key”，因为每次在队列尾端添加元素之后this.count会++
+                return this.items[this.count - 1];
+            }
+            addFront(element) {
+                if (this.isEmpty()) {
+                    this.addBack(element); //若为空，则前端队列或后端队列添加的结果都是相同的
+                } else if (this.lowestCount > 0) {
+                    this.lowestCount--;
+                    this.items[this.lowestCount] = element;//队列的前端“key”不为零，则直接减一留出前面的位置添加
+                } else {
+                    for (let i = this.count; i > 0; i--) {
+                        this.items[i] = this.items[i - 1];
+                    }
+                    this.count++;//为后面的队列添加元素做准备
+                    this.lowestCount = 0;
+                    this.items[0] = element;//队列前端的“key”为0，队列无法直接构造负值，所以整体后移，将值插在【0】处
+                }
+            }
+        }//Deque声明完成
+        function palindromeChecker(aString) {
+            if (aString === undefined || aString === null ||
+                (aString !== null && aString.length === 0)) {
+                return false;
+            }
+            //判断输入的字符串是否合法
+            //null：表示为“无”的对象（空对象指针），转换为数值为‘0’
+            //undefind：表示为“无”的原始值（变量未初始化，未赋初值），转换为数值时为‘NaN’
+
+            const deque = new Deque();
+            const lowerString = aString.toLocaleLowerCase().split(' ').join('');//转换为小写，删除空格
+            let isEqual = true;
+            let firstChar, lastChar;
+
+            for (let i = 0; i < lowerString.length; i++) {
+                deque.addBack(lowerString.charAt(i));//charAt(i)，返回下标为i的元素
+            }//将处理过的字符串中的每一个元素存到双端队列中
+
+            while (deque.size() > 1 && isEqual) { //直到判断到最后的一个元素
+                firstChar = deque.removeFront();
+                lastChar = deque.removeBack();  //依次判断前后队列，判断之后就删除
+                if (firstChar != lastChar) {
+                    isEqual = false;
+                }
+            }
+            return isEqual;   //只要存在一组不同，就返回false，则回文不成立
+        }
+
+        console.log('all',palindromeChecker('all'));
+        console.log('level',palindromeChecker('level'));
+        console.log('Was it a car or a cat I saw',palindromeChecker('Was it a car or a cat I saw'));
+    </script>
+</body>
+
+</html>

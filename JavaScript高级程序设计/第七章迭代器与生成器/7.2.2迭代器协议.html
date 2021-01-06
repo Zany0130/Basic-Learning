@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = ['mike', 'john'];
+        console.log(typeof(arr));
+        console.log(typeof('mike'));
+        console.log(arr[Symbol.iterator]);//迭代器工厂函数
+        let iter = arr[Symbol.iterator]();//迭代器
+        console.log(iter);
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+
+        let arr1 = ['one', 'three'];
+        let iter1 = arr1[Symbol.iterator]();
+        console.log(iter1.next());
+        arr1.splice(1, 0, 'two');
+        console.log(iter1.next());
+        console.log(iter1.next());
+        console.log(iter1.next());
+
+    </script>
+</body>
+</html>

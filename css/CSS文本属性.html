@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS文本属性</title>
+</head>
+<style>
+    /* 文本颜色 */
+    div {
+        /* color: #008cff; */
+        color: rgb(255, 0, 179);
+    }
+
+    /* 对齐文本 text-align：center */
+    h1 {
+        text-align: center;
+        /* text-align: right; */
+    }
+
+
+    /* 装饰文本 下划线 删除线 上划线等  text-decoration: underline*/
+    p {
+        /* 添加下划线 */
+        text-decoration: underline;
+    }
+    a {
+        /* 删除下划线 */
+        text-decoration: none;
+    }
+
+    /* 文本缩进 text-indent：2em 常见于段落的首行缩进 em为相对文字大小的单位，2em表示当前元素两个文字大小的距离*/
+
+    /* 行间距 line-height */
+    div {
+        line-height: 26px /*16像素为默认行高 26px则分别给上下歌5px的距离*/;
+    }
+
+</style>
+<body>
+    <h1>居中对齐的标题</h1>
+    <div>修改文字颜色练习</div>
+    <p>装饰文本练习</p>
+    <a href="https://www.bilibili.com/video/BV14J4114768?p=80">取消前端课程网址的下划线</a>
+    <div>行高练习</div>
+</body>
+</html>

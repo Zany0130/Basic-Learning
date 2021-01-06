@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么是浮动</title>
+    <style>
+        .left,
+        .right{
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color:sienna;
+        }
+        .right {
+            float: right;/*样式重叠，此处的离盒子近，所以已经发现发生了重叠*/
+            width: 200px;
+            height: 200px;
+            background-color:skyblue;
+        }
+    </style>
+</head>
+<body>
+    <h4>float属性用于创建浮动框，将其移动到一边，直到左边缘或右边缘触及包含块或另一个浮动框的边缘。</h4>
+    <h4>在真正的网页布局中，一般三种布局方式都要使用 标准 浮动 定位 
+        竖直布局选标准布局 水平选择浮动
+    </h4>
+    <div class="left">我在左边</div>
+    <div class="right">我在右边</div>
+</body>
+</html>

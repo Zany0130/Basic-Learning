@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Simple Calculator</title>
+        <script type="text/javascript">
+            let num1, num2, type;
+
+            function Calculate() {
+                num1 = parseFloat(document.getElementById("num1").value);//parseFloat()函数，可以解析一个字符串，并返回一个浮点数
+                num2 = parseFloat(document.getElementById("num2").value);//getElementById() 方法可返回对拥有指定 ID 的第一个对象的引用。
+                type = document.getElementById("type").value;
+
+                let result = 0;
+                if (type == "+") {
+                    result = num1 + num2;
+                }
+                if (type == "-") {
+                    result = num1 - num2;
+                }
+                if (type == "*") {
+                    result = num1 * num2;
+                }
+                if (type == "/") {
+                    result = num1 / num2;
+                }
+
+                document.getElementById("result").value = result;
+            }
+        </script>
+    </head>
+    <body>
+        <table align="center">
+            <tr>
+                <td colspan="2" align="center"> <!-- colspan 属性规定单元格可横跨的列数 -->
+                    <div>网页版计算器</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>请输入第一个数字：</td>
+                <td><input type="text" id="num1"></td>
+            </tr>
+
+            <tr>
+                <td colspan="3" align="center">
+                    
+                    <select id="type" style="width: auto; height:auto;">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>请输入第二个数字：</td>
+                <td><input type="text" id="num2"></td>
+            </tr>
+
+            <tr>
+                <td colspan="3" align="center">
+                    <input type="button" id="Calculate" onclick="Calculate();" value="计算" style="background-color: aquamarine;">
+                </td>
+            </tr>
+
+            <tr>
+                <td>计算结果为：</td>
+                <td>
+                    <input type="text" id="result">
+                </td>
+            </tr>
+        </table>
+    </body>
+
+</html>

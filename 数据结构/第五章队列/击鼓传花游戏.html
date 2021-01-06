@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>击鼓传花游戏</title>
+</head>
+<body>
+    <script>
+        class Queue {
+            constructor() {
+                this.count = 0;//控制队列的大小
+                this.lowestCount = 0; //用来追踪第一个元素，因为是“先进先出”的原则，所以第一个元素非常重要
+                this.items = {};//本质是用数组来进行描述的
+            }
+            enqueue(element) {
+                this.items[this.count] = element;
+                this.count++;
+            }//向列表里添加元素
+            dequeue() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                const result = this.items[this.lowestCount];
+                delete this.items[this.lowestCount];
+                this.lowestCount++;
+                return result;
+            }//删除元素
+            peek() {
+                if (this.isEmpty()) {
+                    return undefined;
+                }
+                return this.items[this.lowestCount];
+            }//查看队列中第一个元素
+            isEmpty() {
+                return this.count - this.lowestCount === 0;
+            }//判断队列是否为空
+            size() {
+                return this.count - this.lowestCount;
+            }//判断队列长度
+            clear() {
+                this.items = {};
+                this.count = 0;
+                this.lowestCount = 0;
+            }//清空队列
+            toString() {
+                if (this.isEmpty()) {
+                    return '';
+                }
+                let objString = `${this.items[this.lowestCount]}`;
+                for (let i = this.lowestCount + 1; i < this.count; i++) {
+                    objString = `${objString},${this.items[i]}`;
+                }
+                return objString;
+            }//
+        }
+
+        function hotPotato(elementsList, num) {
+            const queue = new Queue();//构造一个普通队列，一定要加（）！！！！！
+            const elimitatedList = [];//申请一个存放最后元素的数组
+
+            for (let i = 0; i < elementsList.length; i++) {
+                queue.enqueue(elementsList[i]);//把名单中的元素加入所声明的队列当中（游戏已经进入到了队列之中）
+            }
+
+            while (queue.size() > 1) {
+                for (let i = 0; i < num; i++) {
+                    queue.enqueue(queue.dequeue());//先进先出，不停的将前面删除的元素加入到后面，实现循环，num决定的就是传花的次数
+                }
+                elimitatedList.push(queue.dequeue());//记录每次循环9把后淘汰的元素
+                //和印象中的击鼓传花游戏不同；并不是循环一次决定出一次胜者；而是不停的在淘汰，每次淘汰一人，每轮淘汰一人，且每次传花的次数是一定的‘9’次。
+                //队列中的人越来越少，直到不满足while的条件
+            }
+            return {
+                eliminated: elimitatedList,//最终所有元素的名单
+                winner: queue.dequeue()//最后赢家；就是最后从前面删除放到后面的元素
+            };
+        }
+        const names = ['Aiby','Barry','Cone','Didi','Eminam'];
+            const result = hotPotato(names, 9);
+            result.eliminated.forEach(name => {
+                console.log(`${name}在击鼓传花游戏中被淘汰`);
+            });
+            //forEach调用数组的每个元素，并将元素传递给回调函数，箭头函数是简写，实际这里存在一个函数array.forEach(function(currentValue, index, arr), thisValue)；只有currentValue是必选，此处为name
+            console.log(`胜利者：${result.winner}`);
+    </script>
+</body>
+</html>

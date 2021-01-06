@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name = 'Jack';
+        var name = 'bob';
+        let age = 30;
+        // let age = 15; //报错，不能let不能再次声明了
+        const sex = 'boy';
+        //sex = girl; //报错，const不能修改了
+        console.log(name);
+        console.log(typeof(name));
+        console.log(age);
+        console.log(sex);
+
+        function test() {
+            var num1 = 233;
+            console.log(num1);
+        }
+        test();
+        // console.log(num1);//出错，局部变量
+
+        if (true) {
+            let num2 = 443;
+            console.log(num2);
+        }
+        //console.log(num2);//出错，let作用于块中 函数作用域>块作用域
+
+    </script>
+</body>
+</html>

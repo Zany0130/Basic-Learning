@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素显示模式</title>
+</head>
+<body>
+    <!-- HTML元素分为“块元素”和“行内元素” -->
+
+    <!-- 1.块元素：
+        <h1> <p> <div> <ul> <ol> <li>
+        自己独占一行；高度宽度内外边距都可以控制
+        宽度默认是容器的100%
+        每一个容器及盒子，里面可以放行内或者块级元素 
+        文字类元素里面不能再放块元素 <p><h4>中不能放<div>-->
+    
+    <!-- 2.行内元素： -->
+        <!-- <a> <strong> <b> <em> <i> <del> <s> <ins> <u> <span>等
+        <span>是最典型的行内元素
+        一行可以显示多个行内元素
+        高宽度设置是无效的
+        默认宽度就是本身内容的宽度
+        行内元素只能添加文本或者其他行内元素
+        链接内不能再有链接 -->
+    
+    <!-- 3.行内块元素
+        <img/> <input/> <td>同时具有块元素和行内元素的特点，所以称为行内块元素
+        一行上可以有多个
+        可以设置宽度和高度 -->
+    <style>
+        input {
+            width: 250px;
+            height: 35px;
+        }
+
+        /* 元素显示模式转换 */
+        /* 转换为块元素：display:block */
+        /* 转换为行内元素:display:inline */
+        /* 转换为行内块：dsiplay:inline-block */
+        a {
+            width: 150px;
+            height: 50px;
+            background-color: yellow;
+            /* 把行内元素a，住那换为块级元素 */
+            display: block;
+        }
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: purple;
+            /* 块级元素转化为行内元素 */
+            display: inline;
+        }
+        span {
+            width: 100px;
+            height: 30px;
+            color: blue;
+            display: inline-block;
+        }
+    </style>
+    
+</body>
+    <input type="text">
+    <input type="text">
+    <a href="#">金鑫叔叔</a>
+    <a href="#">金鑫阿姨</a>
+    <div>我是块级元素</div>
+    <div>我是块级元素</div>
+    <span>行内元素转换为行内块</span>
+    <span>行内元素转换为行内块</span>
+</html>

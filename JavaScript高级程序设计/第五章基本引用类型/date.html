@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let now = new Date();
+        console.log(now);
+        let someDate = new Date(Date.parse('Nov 32,2020'));
+        console.log(someDate);
+
+        let start = Date.now();
+        let xianzai = new Date();
+        console.log(xianzai);
+        let stop = Date.now();
+        console.log(stop - start);
+        console.log(xianzai.valueOf());
+    </script>
+</body>
+</html>

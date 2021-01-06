@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复合选择器</title>
+    <style>
+        /* 1 后代选择器 元素一元素二之间一定要用空格隔开，且是二是一的后代，改变了元素二的样式 */
+        /* 我要将ol中的li选出来 */
+        /* ol li {
+            color: yellow;
+        }
+        ol li a {
+            color: yellowgreen;
+        }
+        .nav li a {
+            color: tomato;
+        }       */
+
+        /* 2 子选择器，即选择的是最近一级的子元素  使用 > 而不是空格
+        .nav>a {
+            color: turquoise;
+        } */
+
+        /* 3 并集选择器 , 表示“和”*/
+        /* 将熊大熊二变色 */
+        /* div,
+        p {
+            color: wheat;
+        } */
+        /* 将熊大熊二变色 ，小猪一家
+        div,
+         p,
+        .pig li {
+            color: violet;
+        } */
+
+        /* 4 伪类选择器 “：”为标志 */
+        /* 4.1 链接伪类 */
+        /* 未访问的链接 a：link */
+        a:link {
+            color: turquoise;
+            text-decoration: none;
+        }
+        /* a:visited选择访问过的链接 */
+        a:visited {
+            color: tomato;
+        }
+        /* a:hover选择鼠标经过的链接 */
+        a:hover {
+            color: yellowgreen;
+        }
+        /* a:active选择鼠标正在按下还未抬起的链接 */
+        a:active {
+            color: violet;
+        } 
+
+        /* 4.2 :focus伪类选择器 */
+        /* 把获得光标的input表单元素选取出来 */
+        input:focus {
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- /* 1 后代选择器练习 */
+    /* <ol>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li><a href="">我是ol孙子</a></li>
+        <li></li>
+        <li></li>
+    </ol>
+
+    <ul>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li><a href="">我是ul孙子</a></li>
+    </ul>
+    <ul class="nav">
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li><a href="">我也是ul孙子</a></li>
+    </ul> */ -->
+
+    <!-- /* 2 子选择器练习 */
+    <div class="nav">
+        <a href="">我是儿子</a>
+        <p>
+            <a href="">我是孙子</a>
+        </p>
+    </div> -->
+
+    <!-- 3 并集选择器
+    <div>熊大</div>
+    <p>熊二</p>
+    <span>光头强</span>
+    <ul class="pig">
+        <li>小猪佩奇</li>
+        <li>猪爸爸</li>
+        <li>猪妈妈</li>
+    </ul> -->
+
+    <a href="">小猪佩奇</a>
+    <a href="">我没有被点击，所以我不变色</a>
+
+    <input type="text">
+    <input type="text">
+    <input type="text">
+
+</body>
+</html>

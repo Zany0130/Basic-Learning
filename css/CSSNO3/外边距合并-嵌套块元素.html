@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            height: 400px;
+            width: 400px;
+            background-color:hotpink;
+            margin-top:50px;
+            /* border: 1px solid transparent;
+            padding: 1px; */
+            overflow: hidden;
+        }
+        .son {
+            height: 200px;
+            width: 200px;
+            background-color:ivory;
+            margin-top: 100px;/*父元素也随之塌陷，若父类/子类都有外边距，则父类也会根据大的边距进行塌陷*/
+        }
+        /* 解决方法：1给父类元素添加边框
+                 2给父类元素天机内边距
+                 3添加overflow：hidden */
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

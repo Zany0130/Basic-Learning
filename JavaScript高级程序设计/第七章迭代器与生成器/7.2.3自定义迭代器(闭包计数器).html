@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Counter {
+            constructor(limit) {
+                this.limit = limit;
+            }
+
+            [Symbol.iterator]() {
+                let count = 1,
+                    limit = this.limit;
+                return {
+                    next() {
+                        if (count <= limit) {
+                            return { done: false, value: count++};
+                        } else {
+                            return { done: true, value: undefined};
+                        }
+                    }
+                };
+            }
+        }
+
+        let counter = new Counter(3);
+
+        console.log(counter.count);//undefinded
+        for (let i of counter)  {
+            console.log(i);
+        }
+        //1
+        //2
+        //3
+
+        for (let i of counter)  {
+            console.log(i);
+        }
+        //1
+        //2
+        //3
+
+        let arr = ['one', 'two', 'three'];
+        let iter1 = arr[Symbol.iterator]();
+
+        let iter2 = iter1[Symbol.iterator]();
+
+        console.log(iter1 === iter2);//true
+
+
+        let num = [3, 1, 4];
+        let iter = num[Symbol.iterator]();
+        for (let item of num) {
+            console.log(item);
+        }
+        //3
+        //1
+        //4
+        
+        for (let item of iter) {
+            console.log(item);
+        }
+        //3
+        //1
+        //4
+        
+
+    </script>
+</body>
+</html>

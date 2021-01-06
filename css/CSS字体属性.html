@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS字体属性</title>
+</head>
+<style>
+    h2 {
+        font-family: '微软雅黑';
+    }
+    p {
+        /* 可以一行写很多字体，逗号隔开，浏览器按照有无该字体依次加载字体 */
+        font-family: 'Microsoft YaHei', 'Times New Roman', Times, serif; 
+    }
+    body {
+        font-size: 16px;
+    }
+        /* 标题标签比较特殊，需要指定设置字体大小 */
+    h2 {
+        font-size: 18px;
+    }
+
+    /* 设置字体粗细 */
+    .bold {
+        /* font-weight: bold; */
+        font-weight: 700;
+        /*类选择器 等价于bold，在实际开发中，更提倡使用数字 400相当于normal 700相当于bold*/
+    }
+    h2 {
+        font-weight: 400;
+    }
+    
+    /* 设置字体样式 */
+    h2 {
+        font-style: italic;
+    }
+
+    /* 复合属性 将div文字变倾斜 加粗 改变字号 字体 */
+    div {
+        /* font: font-style font-weight font-size/line-height font-family; 
+        有严格的顺序 必须保留font-size font-family两种属性、其余的都可以省略 */
+        font: italic 700 16px/20px 'Microsoft yahei' ;
+    }
+
+</style>
+
+<body>
+    <h2>晴天</h2>
+    <p>只剩下钢琴陪我弹了一天</p>
+    <p>睡着的大提琴</p>
+    <p>安静的 沉默的</p>
+    <p class="bold">我想你已经变得非常明白</p>
+    <p>我懂我也知道</p>
+    <em>自带字体倾斜的标签</em>
+    <div>复合字体属性练习</div>
+</body>
+</html>
