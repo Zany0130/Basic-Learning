@@ -105,6 +105,7 @@
         // console.log(nums.find(multipleOf13));  //13 仅能返回第一个满足条件的值
         // console.log(nums.findIndex(multipleOf13));  //6  返回索引即，“nums[6]”
         // console.log(nums.includes(10,6)); //搜索数组从nums[6]开始，是否有元素10.
+        // indexOf 返回数组中存在的元素的索引
 
         let myarray = [1,2,3,'boy','girl','a','B','C','阿斯顿'];
         console.log(myarray.pop());
@@ -114,6 +115,21 @@
         //console.log(num2);
         // console.log(num2.pop());
         // console.log(num2);
+
+        // 深复制
+        function copy (arr1, arr2) {
+            for(let i=0; i<=arr1.length; i++) {
+                arr2[i] = arr1[i];
+            }
+        }
+
+        //利用sort对数组的数字元素进行真实排序 sort仅对第一个元素比较
+        function compare(num1, num2) {
+            return num1 - num2;
+        }
+        let nums = [1,200,35,6,10];
+        nums.sort(compare);
+        console.log(nums);
 
 
 

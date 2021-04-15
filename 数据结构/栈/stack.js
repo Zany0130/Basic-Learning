@@ -19,7 +19,7 @@ class Stack {
     // 删除栈顶元素
     pop() {
         if (this.isEmpty()) {
-            return undefin;
+            return undefined;
         }
         this.count--;
         const result = this.items[this.count];
